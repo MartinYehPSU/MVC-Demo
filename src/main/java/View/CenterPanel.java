@@ -7,8 +7,11 @@
 
 package View;
 
+import Controller.AbstractController;
+import Controller.HeightController;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -19,13 +22,17 @@ import javax.swing.JPanel;
  *
  * @author nxd13
  */
-public class CenterPanel extends JPanel {
+public class CenterPanel extends JPanel implements Viewable{
     // attributes
     ArrayList<JLabel> headers = new ArrayList<JLabel>();
     ArrayList<JButton> rowData = new ArrayList<JButton>();
     
-    public CenterPanel() {
+    // Controller
+    private HeightController hController;
+    
+    public CenterPanel(AbstractController controller) {
         super();
+        this.hController = (HeightController) controller;
     }
     
     public void setupCenterPanel(int rows, int cols) {
@@ -67,5 +74,10 @@ public class CenterPanel extends JPanel {
         }
         validate();
         repaint();
+    }
+
+    @Override
+    public void modelPropertyChange(PropertyChangeEvent evt) {
+        System.out.println(evt);
     }
 }

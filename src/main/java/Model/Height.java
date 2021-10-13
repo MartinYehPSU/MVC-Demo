@@ -8,11 +8,13 @@
 
 package Model;
 
+import Controller.HeightController;
+
 /**
  *
  * @author nxd13
  */
-public class Height {
+public class Height extends AbstractModel{
     // attribututes
     private int feet;
     private int inches;
@@ -38,7 +40,9 @@ public class Height {
      * @param feet the feet to set
      */
     public void setFeet(int feet) {
+        int oldValue = this.feet;
         this.feet = feet;
+        this.firePropertyChange(HeightController.FEET_PROPERTY, oldValue, feet);
     }
 
     /**
@@ -52,7 +56,9 @@ public class Height {
      * @param inches the inches to set
      */
     public void setInches(int inches) {
+        int oldValue = this.inches;
         this.inches = inches;
+        this.firePropertyChange(HeightController.INCHES_PROPERTY, oldValue, inches);
     }
     
     /**

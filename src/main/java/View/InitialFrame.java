@@ -7,6 +7,7 @@
 
 package View;
 
+import Controller.AbstractController;
 import javax.swing.JFrame;
 
 /**
@@ -18,10 +19,10 @@ public class InitialFrame extends JFrame {
     InitialPanel iPanel;
     CenterPanel cPanel;
     
-    public InitialFrame() {
+    public InitialFrame(AbstractController controller) {
         super("A04C - Graphics with MVC");
         //setupLayoutForMacs();
-        iPanel = new InitialPanel();
+        iPanel = new InitialPanel(controller);
         cPanel = iPanel.getCPanel();
         add(iPanel, "Center");
         //------------------------------------------------------

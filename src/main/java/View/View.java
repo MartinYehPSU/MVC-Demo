@@ -1,6 +1,7 @@
 
 package View;
 
+import Controller.AbstractController;
 import java.util.ArrayList;
 
 public class View
@@ -10,8 +11,8 @@ public class View
     InitialPanel iPanel;
     CenterPanel cPanel;
 
-    public View() {
-        iFrame = new InitialFrame();
+    public View(AbstractController controller) {
+        iFrame = new InitialFrame(controller);
         iPanel = iFrame.getiPanel();
         cPanel = iFrame.getcPanel();
     }

@@ -7,6 +7,7 @@
 
 package View;
 
+import Controller.AbstractController;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -18,10 +19,10 @@ public class InitialPanel extends JPanel{
     // attributes
     CenterPanel cPanel;
     
-    public InitialPanel() {
+    public InitialPanel(AbstractController controller) {
         super();
         setLayout(new BorderLayout());
-        cPanel = new CenterPanel();
+        cPanel = new CenterPanel(controller);
         add(cPanel);
     }
     
